@@ -20,6 +20,13 @@ public class Score implements Renderable {
     private final GamePanel panel;
     private final Player one, two;
 
+    /**
+     * Constructs a Score object with an owning GamePanel and two players.
+     *
+     * @param panel The owning panel.
+     * @param one The first player.
+     * @param two The second player.
+     */
     public Score(GamePanel panel, Player one, Player two) {
         this.panel = panel;
         this.one = one;

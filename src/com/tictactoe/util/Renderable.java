@@ -8,5 +8,10 @@ import java.awt.Graphics2D;
  */
 public interface Renderable {
 
+    /**
+     * Handles the rendering of the renderable.
+     *
+     * @param g The Graphics2D object to draw with.
+     */
     void render(Graphics2D g);
 }

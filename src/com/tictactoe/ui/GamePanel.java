@@ -38,6 +38,11 @@ public class GamePanel extends JPanel {
         }
     }
 
+    /**
+     * Constructs a GamePanel with an owning JFrame.
+     *
+     * @param owner The owner.
+     */
     public GamePanel(JFrame owner) {
         this.owner = owner;
         new Timer(125, new ActionListener() {
@@ -47,6 +52,9 @@ public class GamePanel extends JPanel {
         }).start();
     }
 
+    /**
+     * @return The owner.
+     */
     public JFrame owner() {
         return owner;
     }

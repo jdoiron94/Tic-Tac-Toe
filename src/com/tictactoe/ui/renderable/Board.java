@@ -43,6 +43,14 @@ public class Board implements Renderable {
 
     private boolean canUndo;
 
+    /**
+     * Constructs a Board renderable.
+     *
+     * @param frame The owning frame.
+     * @param panel The owning panel.
+     * @param one The first player.
+     * @param two The second player.
+     */
     public Board(TicTacToe frame, GamePanel panel, Player one, Player two) {
         this.frame = frame;
         this.panel = panel;
@@ -73,6 +81,9 @@ public class Board implements Renderable {
         });
     }
 
+    /**
+     * Handles the undo function.
+     */
     public void undo() {
         lastTurn.setOwner(null);
         if (one.isTurn()) {
@@ -85,6 +96,11 @@ public class Board implements Renderable {
         frame.setUndo(false);
     }
 
+    /**
+     * Handles setting up a new game.
+     *
+     * @param tie The tie status.
+     */
     public void reset(boolean tie) {
         for (GameSpot spot : spots) {
             spot.setOwner(null);
@@ -111,6 +127,11 @@ public class Board implements Renderable {
         }
     }
 
+    /**
+     * Handles the setting of player turns.
+     *
+     * @param spot The spot to claim.
+     */
     private void handleTurn(GameSpot spot) {
         lastTurn = spot;
         canUndo = true;
@@ -126,6 +147,9 @@ public class Board implements Renderable {
         handleWinner();
     }
 
+    /**
+     * Handles wins/ties.
+     */
     private void handleWinner() {
         int count = 0;
         for (GameSpot s : spots) {
@@ -148,6 +172,11 @@ public class Board implements Renderable {
         }
     }
 
+    /**
+     * Handles prompting the player if they wish to play again.
+     *
+     * @param tie The tie status.
+     */
     private void handleRestart(boolean tie) {
         int selection = JOptionPane.showConfirmDialog(panel.owner(), "Would you like to play again?",
                 "Round commencement", JOptionPane.YES_NO_OPTION);
@@ -159,6 +188,9 @@ public class Board implements Renderable {
         }
     }
 
+    /**
+     * Handles the changing of player names.
+     */
     private void handleChangeNames() {
         int selection = JOptionPane.showConfirmDialog(panel.owner(), "Would you like to change names?", "Name changes",
                 JOptionPane.YES_NO_OPTION);
@@ -186,6 +218,9 @@ public class Board implements Renderable {
         }
     }
 
+    /**
+     * @return The winner of the game, if there is one; otherwise, null.
+     */
     private Player winner() {
         main:
         for (GameSpot[] spots : connectors) {
@@ -205,6 +240,13 @@ public class Board implements Renderable {
         return null;
     }
 
+    /**
+     * Gets the parent for the specified GameSpot.
+     *
+     * @param original The original owner of the spot.
+     * @param current The current owner of the spot.
+     * @return The corrected anti-flicker GameSpot.
+     */
     private GameSpot obtainParent(GameSpot original, GameSpot current) {
         if (original != null) {
             current.setOwner(original.owner());
@@ -212,10 +254,18 @@ public class Board implements Renderable {
         return current;
     }
 
+    /**
+     * @return <t>true</t> if the player may undo a move; otherwise, <t>false</t>.
+     */
     public boolean canUndo() {
         return canUndo;
     }
 
+    /**
+     * Handles allowing/disallowing the undo status.
+     *
+     * @param canUndo The undo availability status to set.
+     */
     public void setCanUndo(boolean canUndo) {
         this.canUndo = canUndo;
     }

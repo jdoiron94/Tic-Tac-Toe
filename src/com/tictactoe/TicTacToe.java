@@ -22,6 +22,9 @@ public class TicTacToe extends JFrame {
 
     private final GamePanel panel;
 
+    /**
+     * Constructs the TicTacToe frame.
+     */
     public TicTacToe() {
         super("Tic Tac Toe");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -82,18 +85,32 @@ public class TicTacToe extends JFrame {
         bar.add(help);
         setJMenuBar(bar);
         pack();
-        setLocationRelativeTo(null); // weird af focus lost after names entered?
+        setLocationRelativeTo(null);
     }
 
+    /**
+     * Handles the initiation of the frame.
+     */
     private void init() {
         panel.requestFocusInWindow();
         setVisible(true);
     }
 
+    /**
+     * Handles the undo function availability within the menu.
+     *
+     * @param enabled The undo availability status to set.
+     */
     public void setUndo(boolean enabled) {
         undo.setEnabled(enabled);
     }
 
+    /**
+     * Handles the setting of player one and player two's names.
+     *
+     * @param first <t>true</t> if setting player one's name; otherwise, <t>false</t>.
+     * @return The selected player name.
+     */
     private String name(boolean first) {
         String message = "Player " + (first ? "one's" : "two's") + " name:";
         String title = "Player " + (first ? "one" : "two");
@@ -120,7 +137,12 @@ public class TicTacToe extends JFrame {
         return name;
     }
 
-    public static void main(String[] args) {
+    /**
+     * Driver for the entire game.
+     *
+     * @param args The list of command-line arguments.
+     */
+    public static void main(String... args) {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
