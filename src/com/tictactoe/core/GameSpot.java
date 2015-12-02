@@ -1,4 +1,4 @@
-package tictactoe.core;
+package com.tictactoe.core;
 
 import java.awt.Point;
 import java.awt.Rectangle;
