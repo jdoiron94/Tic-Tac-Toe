@@ -6,9 +6,7 @@ import com.tictactoe.ui.renderable.Board;
 import com.tictactoe.ui.renderable.Score;
 
 import javax.swing.*;
-import java.awt.Dialog;
-import java.awt.Dimension;
-import java.awt.EventQueue;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,7 +25,7 @@ public class TicTacToe extends JFrame {
     public TicTacToe() {
         super("Tic Tac Toe");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 800));
+        setPreferredSize(new Dimension(800, 600));
         final Player playerOne = new Player(name(true), 0, 'X');
         final Player playerTwo = new Player(name(false), 1, 'O');
         playerOne.setTurn(true);
@@ -36,6 +34,7 @@ public class TicTacToe extends JFrame {
         panel.addRenderable(new Score(panel, playerOne, playerTwo));
         panel.addRenderable(board);
         panel.setFocusable(true);
+        panel.setBackground(Color.BLACK);
         add(panel);
         JMenuBar bar = new JMenuBar();
         JMenu file = new JMenu("File");

@@ -38,9 +38,9 @@ public class Score implements Renderable {
         int fontHeight = metrics.getHeight();
         int midX = (panel.getWidth() / 2);
         int midY = (panel.getHeight() / 12);
-        g.setColor(one.score() > two.score() ? GREEN : (one.score() == two.score() ? Color.BLACK : RED));
+        g.setColor(one.score() > two.score() ? GREEN : (one.score() == two.score() ? Color.ORANGE : RED));
         g.drawString(oneScore, midX - oneWidth - (separatorWidth / 2), midY);
-        g.setColor(two.score() > one.score() ? GREEN : (one.score() == two.score() ? Color.BLACK : RED));
+        g.setColor(two.score() > one.score() ? GREEN : (one.score() == two.score() ? Color.ORANGE : RED));
         g.drawString(twoScore, midX + (separatorWidth / 2), midY);
         Rectangle rectangle;
         if (one.isTurn()) {
@@ -50,7 +50,7 @@ public class Score implements Renderable {
             rectangle = new Rectangle(midX + (separatorWidth / 2) - 5, midY - (int) (fontHeight / 1.3D),
                     twoWidth + 10, fontHeight);
         }
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.setStroke(DEFAULT_STROKE);
         g.draw(rectangle);
     }

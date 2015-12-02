@@ -251,7 +251,7 @@ public class Board implements Renderable {
             connectors.add(new GameSpot[]{rightTop, rightMid, rightBottom});
         }
         g.setStroke(DEFAULT_STROKE);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawLine(midTop.x(), midTop.y(), midTop.x(), midBottom.y() + boxHeight);
         g.drawLine(rightTop.x(), rightTop.y(), rightTop.x(), rightBottom.y() + boxHeight);
         g.drawLine(midMid.x() - boxWidth, midMid.y(), rightMid.x() + boxWidth, midMid.y());
@@ -264,6 +264,7 @@ public class Board implements Renderable {
                 Rectangle2D symbolBounds = metrics.getStringBounds(symbol, g);
                 int midX = spot.x() + (spot.rectangle().width / 2) - ((int) symbolBounds.getWidth() / 2);
                 int midY = spot.y() + (spot.rectangle().height / 2) - (int) ((int) symbolBounds.getHeight() / 1.425D);
+                g.setColor(symbol.equalsIgnoreCase("x") ? Color.BLUE : Color.RED);
                 g.drawString(symbol, midX, midY + (int) symbolBounds.getHeight());
             }
         }
