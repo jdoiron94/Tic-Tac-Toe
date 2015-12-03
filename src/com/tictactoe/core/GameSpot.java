@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public class GameSpot {

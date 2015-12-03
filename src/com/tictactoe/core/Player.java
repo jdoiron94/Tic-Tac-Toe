@@ -1,7 +1,7 @@
 package com.tictactoe.core;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public class Player {

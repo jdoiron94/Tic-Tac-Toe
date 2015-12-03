@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public class TicTacToe extends JFrame {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public class GamePanel extends JPanel {

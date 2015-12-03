@@ -3,7 +3,7 @@ package com.tictactoe.util;
 import java.awt.Graphics2D;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public interface Renderable {

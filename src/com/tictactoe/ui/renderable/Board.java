@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public class Board implements Renderable {

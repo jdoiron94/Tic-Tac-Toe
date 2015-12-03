@@ -7,7 +7,7 @@ import com.tictactoe.util.Renderable;
 import java.awt.*;
 
 /**
- * @author Jacob
+ * @author Jacob Doiron
  * @since 9/8/2015
  */
 public class Score implements Renderable {
