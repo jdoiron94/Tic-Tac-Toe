@@ -4,6 +4,7 @@ import com.tictactoe.core.Player;
 import com.tictactoe.ui.GamePanel;
 import com.tictactoe.ui.renderable.Board;
 import com.tictactoe.ui.renderable.Score;
+import com.tictactoe.util.OperatingSystem;
 
 import javax.swing.*;
 import java.awt.*;
@@ -143,16 +144,20 @@ public class TicTacToe extends JFrame {
      * @param args The list of command-line arguments.
      */
     public static void main(String... args) {
+        if (OperatingSystem.getSystem() == OperatingSystem.MAC) {
+            System.setProperty("apple.laf.useScreenMenuBar", "true");
+        } else {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (Exception ignored) {
+                System.err.println("Could not set system look and feel.");
+            }
+        }
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException | IllegalAccessException e) {
-                    System.err.println("Could not set system default look and feel.");
-                    e.printStackTrace();
-                }
-                new TicTacToe().init();
+                TicTacToe game = new TicTacToe();
+                game.init();
             }
         });
     }
