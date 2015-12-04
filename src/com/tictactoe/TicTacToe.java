@@ -5,11 +5,13 @@ import com.tictactoe.ui.GamePanel;
 import com.tictactoe.ui.renderable.Board;
 import com.tictactoe.ui.renderable.Score;
 import com.tictactoe.util.OperatingSystem;
+import com.tictactoe.util.ResourceLoader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 
 /**
  * @author Jacob Doiron
@@ -30,6 +32,10 @@ public class TicTacToe extends JFrame {
         super("Tic Tac Toe");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 600));
+        ResourceLoader res = new ResourceLoader("icons/");
+        InputStream stream = res.getStream("Icon.png");
+        byte[] bytes = res.readStream(stream);
+        ImageIcon icon = new ImageIcon(bytes);
         final Player playerOne = new Player(name(true), 0, 'X');
         final Player playerTwo = new Player(name(false), 1, 'O');
         playerOne.setTurn(true);
@@ -85,6 +91,7 @@ public class TicTacToe extends JFrame {
         bar.add(edit);
         bar.add(help);
         setJMenuBar(bar);
+        setIconImage(icon.getImage());
         pack();
         setLocationRelativeTo(null);
     }
