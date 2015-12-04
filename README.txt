@@ -32,3 +32,4 @@ Changing names: When the change name screen comes up, players must enter two dif
 Scores: When players are tied, player names and their scores will be colored orange.
 	When one player has a higher score than the other, they will be colored 
 	in green. The losing player will be colored red.
+Royalty free icon: https://www.iconfinder.com/icons/190298/game_grey_tac_tic_toe_icon#size=128
